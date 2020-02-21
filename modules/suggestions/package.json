@@ -22,6 +22,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "remove-accents": "^0.4.2"
+    "remove-accents": "^0.4.2",
+    "string-hash": "^1.1.3"
   }
 }

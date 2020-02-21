@@ -1,6 +1,6 @@
 import removeAccents from "remove-accents";
 
-function tokenize(text) {
+export function tokenize(text) {
   if (typeof text === "string") {
     return removeAccents(text.toLocaleLowerCase())
       .match(/\w*/g)
@@ -9,4 +9,20 @@ function tokenize(text) {
   return [];
 }
 
-export default tokenize;
+export function aggregateParts(parts) {
+  return parts.reduce((a, part) => {
+    const start = part.substr(0, part.length - 1);
+    const letter = part.substr(part.length - 1);
+
+    if (start in a) {
+      return {
+        ...a,
+        [start]: {
+          ...a[start],
+          [letter]: letter in a[start] ? a[start][letter] + 1 : 1
+        }
+      };
+    }
+    return { ...a, [start]: { [letter]: 1 } };
+  }, {});
+}
