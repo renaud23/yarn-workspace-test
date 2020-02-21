@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "yarn-package-test",
+  "devDependencies": {},
+  "workspaces": {
+    "packages": [
+      "modules/*"
+    ],
+    "nohoist": [
+      "**/react-scripts",
+      "**/react-scripts/**"
+    ]
+  }
+}
