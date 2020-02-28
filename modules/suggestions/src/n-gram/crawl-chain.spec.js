@@ -10,9 +10,6 @@ describe("build-n-gram-map", function() {
     const map = buildNGramMap(nGrams);
     const chain = buildChain(map);
     const props = crawlChain(["t", "o"], chain);
-
-    console.log(props);
-    // TODO
   });
 
   it("with array of string", function() {});
